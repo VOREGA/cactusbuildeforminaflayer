@@ -4,7 +4,7 @@ const delay = require('util').promisify(setTimeout)
 
 const bot = mineflayer.createBot({
     host: "localhost",
-    port: 61315,
+    port: 54823,
 
     username: "CactusBuilder", //test@gmail.com
     auth:"offline",
@@ -12,9 +12,9 @@ const bot = mineflayer.createBot({
     version: "1.18.2"
 })
 
-const cac = 8
+const cac = 9
 const dirt = 20
-const sand = 8
+const sand = 9
 const fence = 6
 
 
@@ -136,6 +136,17 @@ async function placeDirtLayer() {
     await bot.placeBlock(bot.blockAt(bot.entity.position.offset(2, -1, -2)), vec3(0, 1, 0))
     //break
 }
+async function placeLastCactus(){
+    await bot.dig(bot.blockAt(bot.entity.position.offset(0, -2, 0)), true);
+    await bot.dig(bot.blockAt(bot.entity.position.offset(0, -3, 0)), true);
+    await bot.dig(bot.blockAt(bot.entity.position.offset(0, -4, 0)), true);
+    await delay(2000)
+    await bot.equip(bot.inventory.items().find(item => item.name === 'sand'), "hand")
+    await bot.placeBlock(bot.blockAt(bot.entity.position.offset(0, -5, 0)), vec3(0, 1, 0))
+    await bot.equip(bot.inventory.items().find(item => item.name === 'cactus'), "hand")
+    await delay(2000)
+    await bot.placeBlock(bot.blockAt(bot.entity.position.offset(0, -4, 0)), vec3(0, 1, 0))
+}
 
 async function cactus(x){
     for(let layer =0; layer < x; layer++){
@@ -155,6 +166,8 @@ async function cactus(x){
         await delay(1000)
         await digLayer()
         await delay(1000)
+        await placeLastCactus()
+        delay(1000)
     }
 }
 
