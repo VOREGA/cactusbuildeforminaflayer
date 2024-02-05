@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Minecraft Bot</title>
+</head>
+<body>
+  <h1>Minecraft Bot</h1>
+  <p>Bu web sayfası, Minecraft sunucusunda bot oluşturmak ve yönetmek için kullanılır.</p>
+  <p>Botun adı: Vorega3</p>
+  <p>Botun sunucusu: X Serveri</p>
+  <p>Botun sürümü: 1.16.5</p>
+  <p>Botun komutları:</p>
+  <ul>
+    <li>/tpa <name>: Botu belirtilen oyuncuya ışınlar.</li> <!-- <name> olarak değiştirildi -->
+    <li>/sethome: Botun bulunduğu yeri ev olarak ayarlar.</li>
+    <li>/survival: Botu hayatta kalma moduna geçirir.</li>
+    <li>/home: Botu evine ışınlar.</li>
+  </ul>
+<form action="/tp/:name" method="get">
+    <label for="name">Oyuncu adı /tpa:</label>
+    <input type="text" id="name" name="name" required>
+    <input type="submit" value="Işınla">
+</form>
+   <form action="/pay/:paraisim" method="get">
+    <label for="paraisim">Oyuncu adı /pay:</label>
+    <input type="text" id="paraisim" name="paraisim" required>
+    <input type="submit" value="parayolla">
+</form>
+   <form action="/istekmesaj/:istekmesaj" method="get">
+    <label for="istekmesaj">Oyuncu adı istek mesaj:</label>
+    <input type="text" id="istekmesaj" name="istekmesaj" required>
+    <input type="submit" value="mesajı yolla">
+</form>
+  <p>Botun evini ayarlamak için aşağıdaki butona tıklayabilirsin:</p>
+  <form action="/sethome" method="get">
+    <input type="submit" value="Ev Ayarla">
+  </form>
+ <p>Botun tpayı kabul etmesini sağla (/tpaccept kullanır):</p>
+  <form action="/tpaccept" method="get">
+    <input type="submit" value="Tpa yı kabul et">
+   </form> 
+   <form action="/cactus" method="get">
+    <label for="amount">Kaç Katlı Kaktüs dikmeliyim:</label>
+    <input type="number" id="amount" name="amount" required>
+    <input type="submit" value="Hesapla">
+</form>
+
+  
+</body>
+</html>
+
+
+
+
+
+
 
